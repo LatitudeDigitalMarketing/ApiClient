@@ -2,9 +2,8 @@
 
 namespace WebApiTestClient.Models
 {
-    public class Status
+    public enum Status
     {
-        public Boolean Paused { get; set; }
-        public Boolean PaymentFailed { get; set; }
+        Active, Paused, Canceled
     }
 }

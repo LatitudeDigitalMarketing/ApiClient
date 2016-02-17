@@ -56,10 +56,12 @@
     <Compile Include="Api\OrderRepository.cs" />
     <Compile Include="Authorization\Auth.cs" />
     <Compile Include="Models\Campaign.cs" />
-    <Compile Include="Models\Cancel.cs" />
+    <Compile Include="Models\CampaignTarget.cs" />
+    <Compile Include="Models\CancellationReasons.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\GeoTargetting.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\SearchEngines.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Utils\ConsoleExtensions.cs" />
     <Compile Include="Utils\Helper.cs" />

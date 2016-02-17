@@ -20,7 +20,7 @@ namespace WebApiTestClient
 {
     class Program
     {
-        private static readonly Uri BaseAddress = new Uri("https://localhost:44301/");// new Uri("http://localhost:56402/");//new Uri("http://localhost:26264/");
+        private static readonly Uri BaseAddress = new Uri("https://poc.dev.latitudegroup.com/latitudewhiteapi/");// new Uri("https://localhost:44301/");// new Uri("http://localhost:56402/");//new Uri("http://localhost:26264/");
         private static Customer _customer;
         private static Campaign _campaign;
         private static Order _order;
@@ -50,7 +50,7 @@ namespace WebApiTestClient
 
             "Now we have the token lets hit the API:".ConsoleYellow();
 
-            //GetSomeObjects(BaseAddress.AbsoluteUri, tokens.Result.AccessToken);
+            GetSomeObjects(BaseAddress.AbsoluteUri, tokens.Result.AccessToken);
 
             //CreateANewCustomer(BaseAddress.AbsoluteUri, tokens.Result.AccessToken);
             //AddACampaignToACustomer(BaseAddress.AbsoluteUri, tokens.Result.AccessToken, _customer.CustomerId.Value);
@@ -60,7 +60,7 @@ namespace WebApiTestClient
             //AddACampaignToACustomer(BaseAddress.AbsoluteUri, tokens.Result.AccessToken, 40763);
             //AddAnOrderToACampaign(BaseAddress.AbsoluteUri, tokens.Result.AccessToken, 40763, 27404);
 
-            UpdateSomeObjectsUsingPut(BaseAddress.AbsoluteUri, tokens.Result.AccessToken);
+            //UpdateSomeObjectsUsingPut(BaseAddress.AbsoluteUri, tokens.Result.AccessToken);
 
 
             Console.ReadKey();
@@ -76,7 +76,7 @@ namespace WebApiTestClient
 
             var firstCampaign = campaigns.First();
 
-            var orders = campaignRepo.GetOrdersForCampaign(firstCampaign.CampaignId.Value).Result;
+            var orders = campaignRepo.GetOrdersForCampaign(firstCampaign.Id.Value).Result;
 
             var firstOrder = orders.First();
 
@@ -116,7 +116,7 @@ namespace WebApiTestClient
                 BusinessName = "My Test Customer",
                 ContactName = "Test",
                 SendReportEmail = "test@mytestcustomer.com",
-                BusinessWebsite = "www.mytestcustomer.com",
+                BusinessWebsite = "http://www.mytestcustomer.com",
                 IndustryName = "Testing",
                 Market = "United Kingdom"
             });
@@ -155,11 +155,9 @@ namespace WebApiTestClient
                 StartDate = new DateTime(2016, 02, 01),
                 EndDate = new DateTime(2016, 04, 30),
                 OrderRef = "MyOrderRef101",//should be unique (it will be made unique if duplicate already exists in your records), if it is not provided we will create a GUID.
-                PackageType = "click",//the types are 'click', 'spend' or 'position'
-                Package = "MyPackage",//what you want to call the package for reporting
                 SpendTarget = 1000,
                 ClickTarget = 500,// only requred for 'click' package type
-                Status = new Status { Paused = true, PaymentFailed = false}
+                Status = Status.Active
             });
 
             order.Result?.PrintObjectToConsole();

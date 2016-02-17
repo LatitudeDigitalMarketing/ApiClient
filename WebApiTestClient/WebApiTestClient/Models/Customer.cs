@@ -2,7 +2,7 @@ namespace WebApiTestClient.Models
 {
     public class Customer
     {
-        public int? CustomerId { get; set; }
+        public int? Id { get; set; }
         public string CustomerRef { get; set; }
         public string BusinessName { get; set; }
         public string BusinessWebsite { get; set; }

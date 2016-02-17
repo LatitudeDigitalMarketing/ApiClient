@@ -31,7 +31,7 @@ namespace WebApiTestClient.Api
 
         public Task<Order> UpdateOrder(Order order)
         {
-            return order.PutToService(_token, _baseAddress, $"api/v1/orders/{order.OrderId}");
+            return order.PutToService(_token, _baseAddress, $"api/v1/orders/{order.Id}");
         }
     }
 }

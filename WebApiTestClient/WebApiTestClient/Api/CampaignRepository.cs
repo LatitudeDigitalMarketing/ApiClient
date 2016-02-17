@@ -36,7 +36,7 @@ namespace WebApiTestClient.Api
 
         public Task<Campaign> UpdateCampaign(Campaign campaign)
         {
-            return campaign.PutToService(_token, _baseAddress, $"api/v1/campaigns/{campaign.CampaignId}");
+            return campaign.PutToService(_token, _baseAddress, $"api/v1/campaigns/{campaign.Id}");
         } 
     }
 }
