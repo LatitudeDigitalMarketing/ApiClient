@@ -20,7 +20,7 @@ namespace WebApiTestClient
 {
     class Program
     {
-        private static readonly Uri BaseAddress = new Uri("https://poc.dev.latitudegroup.com/latitudewhiteapi/");// new Uri("https://localhost:44301/");// new Uri("http://localhost:56402/");//new Uri("http://localhost:26264/");
+        private static readonly Uri BaseAddress = new Uri("https://www1.latitudegroup.com/latitudewhite/");
         private static Customer _customer;
         private static Campaign _campaign;
         private static Order _order;
